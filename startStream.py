@@ -34,7 +34,7 @@ class startStream:
 
     def startMacOS(self, url):
         try:
-            subprocess.call(['open', '-W', '-a', 'Terminal.app', 'mpv', '--border=no', url])
+            subprocess.call(['/usr/local/bin/mpv', url])
         except:
             print("Could not start Windows stream")
             time.sleep(10)
