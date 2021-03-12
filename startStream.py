@@ -20,7 +20,7 @@ class startStream:
 
     def startLinux(self, url):
         try:
-            subprocess.call(["gnome-terminal", "-x", "mpv", "--border=no", url])
+            subprocess.call(["gnome-terminal", "--", "mpv", "--border=no", url])
         except:
             print("Could not start Linux stream")
             time.sleep(10)

@@ -21,10 +21,14 @@ class checkForLive():
 
         jsn = json.loads(raw.text)
         state = jsn['resultObj']['containers'][0]['retrieveItems']['resultObj']['containers'][0]['metadata']['entitlement']
-        if state == "Access":
-            return False
+        subtype = jsn['resultObj']['containers'][0]['retrieveItems']['resultObj']['containers'][0]['metadata']['contentSubtype']
+        if not state == "Access":
+            if not subtype == "REPLAY":
+                return True
+            else:
+                return False
         else:
-            return True
+            return False
 
     def getLiveUrl(self):
         raw = self.getResultObj()

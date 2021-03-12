@@ -16,6 +16,7 @@ import checkForLive
 import getUrlById
 import updateChecker
 import startStream
+import pyperclip
 
 # Main menu settings
 main_menu_title = "  F1Hub Main Menu\n"
@@ -29,93 +30,52 @@ main_menu_cursor_style = ("fg_red", "bold")
 main_menu_style = ("bg_red", "fg_yellow")
 
 main_menu = TerminalMenu(menu_entries=main_menu_items,
-                        title=main_menu_title,
-                        menu_cursor=main_menu_cursor,
-                        menu_cursor_style=main_menu_cursor_style,
-                        menu_highlight_style=main_menu_style,
-                        cycle_cursor=True,
-                        clear_screen=True)
+                        title=main_menu_title, clear_screen=True)
 
 # Event menu settings
 event_menu_items = []
 event_menu_title = "    Event Menu\n"
-event_menu = TerminalMenu(event_menu_items,
-                        event_menu_title,
-                        main_menu_cursor,
-                        main_menu_cursor_style,
-                        main_menu_style,
-                        cycle_cursor=True,
-                        clear_screen=True)
+event_menu = TerminalMenu(menu_entries=event_menu_items,
+                        title=event_menu_title, clear_screen=True)
 events = []
 
 # ID menu settings
 ID_menu_items = []
 ID_menu_title = ""
-ID_menu = TerminalMenu(ID_menu_items,
-                        ID_menu_title,
-                        main_menu_cursor,
-                        main_menu_cursor_style,
-                        main_menu_style,
-                        cycle_cursor=True,
-                        clear_screen=True)
+ID_menu = TerminalMenu(menu_entries=ID_menu_items,
+                        title=ID_menu_title, clear_screen=True)
 sessions = []
 
 # Session menu settings
 session_menu_items = []
 session_menu_title = "    Event Menu\n"
-session_menu = TerminalMenu(session_menu_items,
-                        session_menu_title,
-                        main_menu_cursor,
-                        main_menu_cursor_style,
-                        main_menu_style,
-                        cycle_cursor=True,
-                        clear_screen=True)
+session_menu = TerminalMenu(menu_entries=session_menu_items,
+                        title=session_menu_title, clear_screen=True)
 sessions = []
 
 # Weekend Selector
 selector_menu_items = []
 selector_menu_title =   "   Weekend Menu\n"
-select_menu = TerminalMenu(selector_menu_items,
-                        selector_menu_title,
-                        main_menu_cursor,
-                        main_menu_cursor_style,
-                        main_menu_style,
-                        cycle_cursor=True,
-                        clear_screen=True)
+select_menu = TerminalMenu(menu_entries=selector_menu_items,
+                        title=selector_menu_title, clear_screen=True)
 selectors = []
 
 # Stream Selector
 stream_menu_items = []
 stream_menu_title =   "   Feed Menu\n"
-stream_menu = TerminalMenu(stream_menu_items,
-                        stream_menu_title,
-                        main_menu_cursor,
-                        main_menu_cursor_style,
-                        main_menu_style,
-                        cycle_cursor=True,
-                        clear_screen=True)
-#selectors = []
+stream_menu = TerminalMenu(menu_entries=stream_menu_items,
+                        title=stream_menu_title, clear_screen=True)
 
 # Play Selector
-play_menu_items = ["Play with MPV", "Copy link to Clipboard", "Return to Session Menu"]
+play_menu_items = ["Play with MPV", "Copy link to Clipboard", "Display Link", "Return to Session Menu"]
 play_menu_title =   "   Play Menu\n"
-play_menu = TerminalMenu(play_menu_items,
-                        play_menu_title,
-                        main_menu_cursor,
-                        main_menu_cursor_style,
-                        main_menu_style,
-                        cycle_cursor=True,
-                        clear_screen=True)
+play_menu = TerminalMenu(menu_entries=play_menu_items,
+                        title=play_menu_title, clear_screen=True)
 
 login_menu_items = ['Log In with password', "Log in with Entitlement Token", "Return to Main Menu"]
 login_menu_title =  "   Login Menu\n"
-login_menu = TerminalMenu(login_menu_items,
-                        login_menu_title,
-                        main_menu_cursor,
-                        main_menu_cursor_style,
-                        main_menu_style,
-                        cycle_cursor=True,
-                        clear_screen=True)
+login_menu = TerminalMenu(menu_entries=login_menu_items,
+                        title=login_menu_title, clear_screen=True)
 
 
 def main():
@@ -144,13 +104,8 @@ def main():
         season_menu_items.append(seasons[x].getName())
     season_menu_items.append("Back to Main Menu")
     season_menu_back = False
-    season_menu = TerminalMenu(season_menu_items,
-                             season_menu_title,
-                             main_menu_cursor,
-                             main_menu_cursor_style,
-                             main_menu_style,
-                             cycle_cursor=True,
-                             clear_screen=True)
+    season_menu = TerminalMenu(menu_entries=season_menu_items,
+                             title=season_menu_title, clear_screen=True)
 
 
 
@@ -175,13 +130,8 @@ def main():
                     print("Season selected")
                     #populateEventList(seasons[season_sel].getUrl())
                     event_menu_items = getEventList(seasons[season_sel].getUrl())
-                    event_menu = TerminalMenu(event_menu_items,
-                             event_menu_title,
-                             main_menu_cursor,
-                             main_menu_cursor_style,
-                             main_menu_style,
-                             cycle_cursor=True,
-                             clear_screen=True)
+                    event_menu = TerminalMenu(menu_entries=event_menu_items,
+                             title=event_menu_title, clear_screen=True)
 
                     #Enter Event Menu
                     while not event_menu_back:
@@ -190,23 +140,13 @@ def main():
                             event_menu_back = True
                             print("Back Selected")
                         else:
-                            #print(event_sel)
-                            #evUrl = getEventlistUrl(seasons[season_sel].getUrl(), event_sel)
                             evUrl = getEventObj(seasons[season_sel].getUrl())[event_sel].getUrl()
-                            #print(evUrl)
-                            #time.sleep(2)
                             # Enter Selector Menu
                             selector_menu_items = getElementUrl.getElement(evUrl).getCats()
                             selector_menu_items.append("Back to Event Menu")
-                            select_menu = TerminalMenu(selector_menu_items,
-                                                        selector_menu_title,
-                                                        main_menu_cursor,
-                                                        main_menu_cursor_style,
-                                                        main_menu_style,
-                                                        cycle_cursor=True,
-                                                        clear_screen=True)
-                            #print(selector_menu_items)
-                            #time.sleep(5)
+                            select_menu = TerminalMenu(menu_entries=selector_menu_items,
+                                                        title=selector_menu_title, clear_screen=True)
+
                             while not selector_menu_back:
                                 selector_sel = select_menu.show()
                                 if selector_sel == len(selector_menu_items)-1:
@@ -218,13 +158,9 @@ def main():
                                     tarUrl = evUrl
                                     session_menu_items = getSessionList(selector_sel, tarUrl)
                                     #print(session_menu_items)
-                                    session_menu = TerminalMenu(session_menu_items,
-                                                                session_menu_title,
-                                                                main_menu_cursor,
-                                                                main_menu_cursor_style,
-                                                                main_menu_style,
-                                                                cycle_cursor=True,
-                                                                clear_screen=True)
+                                    session_menu = TerminalMenu(menu_entries=session_menu_items,
+                                                                title=session_menu_title, clear_screen=True)
+
                                     while not session_menu_back:
                                         sess_sel = session_menu.show()
                                         if sess_sel == len(session_menu_items)-1:
@@ -234,13 +170,9 @@ def main():
                                             # Stream List
                                             while not stream_menu_back:
                                                 stream_menu_items = getFeedList(selector_sel, tarUrl, sess_sel)
-                                                stream_menu = TerminalMenu(stream_menu_items,
-                                                                                    stream_menu_title,
-                                                                                    main_menu_cursor,
-                                                                                    main_menu_cursor_style,
-                                                                                    main_menu_style,
-                                                                                    cycle_cursor=True,
-                                                                                    clear_screen=True)
+                                                stream_menu = TerminalMenu(menu_entries=stream_menu_items,
+                                                                                    title=stream_menu_title, clear_screen=True)
+
                                                 stream_sel = stream_menu.show()
                                                 if stream_sel == len(stream_menu_items)-1:
                                                     stream_menu_back = True
@@ -249,7 +181,7 @@ def main():
                                                         play_sel = play_menu.show()
                                                         if play_sel == len(play_menu_items)-1:
                                                             play_menu_back = True
-                                                        else:
+                                                        elif play_sel == 0:
                                                             if not auth.getLoginState():
                                                                 print("Not logged in. You need to be logged in.")
                                                                 time.sleep(5)
@@ -267,6 +199,25 @@ def main():
                                                             except:
                                                                 print("Failed to get playable link. Are you logged in?")
                                                                 time.sleep(5)
+                                                        elif play_sel == 1:
+                                                            # Paste to clipboard
+                                                            try:
+                                                                baseUrl = getFeedElements(selector_sel, tarUrl, sess_sel)[stream_sel].getUrl()
+                                                                streamUrl = getM3U8Stream.getTokenizedUrl(baseUrl, auth).getUrl()
+                                                                pyperclip.copy(streamUrl)
+                                                                #pyperclip.paste()
+                                                            except:
+                                                                print("Could not get link or failed to paste link to clipboard")
+                                                        elif play_sel == 2:
+                                                            # Display Link
+                                                            try:
+                                                                baseUrl = getFeedElements(selector_sel, tarUrl, sess_sel)[stream_sel].getUrl()
+                                                                streamUrl = getM3U8Stream.getTokenizedUrl(baseUrl, auth).getUrl()
+                                                                print(streamUrl)
+                                                                time.sleep(10)
+                                                            except:
+                                                                print("Could not get link.")
+                                                            pass
 
                                                     play_menu_back = False
                                             stream_menu_back = False
@@ -290,13 +241,9 @@ def main():
                 exit
             ID_menu_title = idObj.getObjName()
             ID_menu_items = getIdItems(idObj)
-            ID_menu = TerminalMenu(ID_menu_items,
-                        ID_menu_title,
-                        main_menu_cursor,
-                        main_menu_cursor_style,
-                        main_menu_style,
-                        cycle_cursor=True,
-                        clear_screen=True)
+            ID_menu = TerminalMenu(menu_entries=ID_menu_items,
+                        title=ID_menu_title, clear_screen=True)
+
             while not ID_menu_back:
                 id_sel = ID_menu.show()
                 if id_sel == len(ID_menu_items)-1:
@@ -325,7 +272,21 @@ def main():
                                 time.sleep(5)
                         elif play_sel == 1:
                             # Copy to clipboard
-                            pass
+                            try:
+                                baseUrl = getIdSelectionUrl(idObj, id_sel)
+                                streamUrl = streamUrl = getM3U8Stream.getTokenizedUrl(baseUrl, auth).getUrl()
+                                pyperclip.copy(streamUrl)
+                            except:
+                                print("Could not get playable link or pasting to clipboard failed.")
+                        elif play_sel == 2:
+                            try:
+                                baseUrl = getIdSelectionUrl(idObj, id_sel)
+                                streamUrl = streamUrl = getM3U8Stream.getTokenizedUrl(baseUrl, auth).getUrl()
+                                print(streamUrl)
+                                time.sleep(10)
+                            except:
+                                print("Could not get playable link.")
+
                     play_menu_back = False
             ID_menu_back = False
 
@@ -375,13 +336,9 @@ def main():
             idObj = getUrlById.getUrlByContentId(liveid)
             ID_menu_title = idObj.getObjName()
             ID_menu_items = getIdItems(idObj)
-            ID_menu = TerminalMenu(ID_menu_items,
-                        ID_menu_title,
-                        main_menu_cursor,
-                        main_menu_cursor_style,
-                        main_menu_style,
-                        cycle_cursor=True,
-                        clear_screen=True)
+            ID_menu = TerminalMenu(menu_entries=ID_menu_items,
+                        title=ID_menu_title, clear_screen=True)
+
             while not ID_menu_back:
                 id_sel = ID_menu.show()
                 if id_sel == len(ID_menu_items)-1:
@@ -410,7 +367,14 @@ def main():
                                 time.sleep(5)
                         elif play_sel == 1:
                             # Copy to clipboard
-                            pass
+                            try:
+                                baseUrl = getIdSelectionUrl(idObj, id_sel)
+                                streamUrl = streamUrl = getM3U8Stream.getTokenizedUrl(baseUrl, auth).getUrl()
+                                pyperclip.copy(streamUrl)
+                                pyperclip.paste()
+                            except:
+                                print("Could not get playable link or pasting to clipboard failed.")
+
                     play_menu_back = False
             ID_menu_back = False
 
@@ -489,13 +453,9 @@ def getFeedElements(cat, url, sessSel):
     return elements
 
 def updateEventMenu():
-    event_menu = TerminalMenu(event_menu_items,
-                             event_menu_title,
-                             main_menu_cursor,
-                             main_menu_cursor_style,
-                             main_menu_style,
-                             cycle_cursor=True,
-                             clear_screen=True)
+    event_menu = TerminalMenu(menu_entries=event_menu_items,
+                             title=event_menu_title, clear_screen=True)
+
 updateEventMenu()
 if __name__ == "__main__":
     main()
