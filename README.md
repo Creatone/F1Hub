@@ -14,8 +14,8 @@ _*In theory. As of now, the F1TV website is needed for some content_
 
 - No lenthy website load times
 - Even if the website is down, usually the API stays available, which means F1Hub will be working as well.
-- Designed to work with the 2021 updated F1TV API, delivering you 1080p50 streams by default
-- Multi-Stream functionality: Unlike on the website, this tool opens as many streams as you like, enabling you to create your own Race Control at home
+- Designed to work with the 2021 updated F1TV API, delivering you 1080p50 streams by default.
+- Multi-Stream functionality: Unlike on the website, this tool opens as many streams as you like, enabling you to create your own Race Control at home.
 - Simply enter a Content ID (long number in the URL of a play page) in the content ID menu and immediately play! No long menu browsing required.
 
 ## Anti-Features
@@ -78,7 +78,7 @@ This _may_ work for live sessions, if they are designed the same way. We will kn
 ## Planned Features
 - All the bug fixes!
 - Better, more flexible menu structure, and a graphical UI down the line.
-- Live feature before the season's start
+- Live feature before the season's start _NOW AVAILABLE_
 - 2021 Integration before the season's start
 - Any Event based on ID being able to be played, ideally before the season's start. _NOW AVAILABLE_
 
