@@ -14,6 +14,7 @@ import subprocess
 import os
 import checkForLive
 import getUrlById
+import updateChecker
 
 # Main menu settings
 main_menu_title = "  F1Hub Main Menu\n"
@@ -127,14 +128,15 @@ def main():
     ID_menu_back = False
 
     auth = authenticate.authenticate("","")
-
+    
+    if updateChecker.checkForUpdate():
+        print("A new version is available. Make sure to update as soon as possible to recieve the latest bugfixes")
+        print("Download at https://github.com/kodosexe/F1Hub")
+        time.sleep(6)
 
     # Season menu settings
     seasons = getSeasonUrl.getSeason().getAllSeasons()
-    #print(getSeasonUrl.getSeason().getAllSeasons()[0].getName())
-    #seasons = urlGetter.getAllSeasons()
-    #toGet = seasons[0]
-    #print(toGet.getName())
+
     season_menu_title = "  Season Menu\n"
     season_menu_items = []
     for x in range(len(seasons)):
