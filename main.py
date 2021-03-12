@@ -15,6 +15,7 @@ import os
 import checkForLive
 import getUrlById
 import updateChecker
+import startStream
 
 # Main menu settings
 main_menu_title = "  F1Hub Main Menu\n"
@@ -259,7 +260,7 @@ def main():
                                                                 streamUrl = getM3U8Stream.getTokenizedUrl(baseUrl, auth).getUrl()
                                                                 
                                                                 try:
-                                                                    subprocess.call(["gnome-terminal", "-x", "mpv", "--border=no", streamUrl])
+                                                                    startStream.startStream().start(streamUrl)
                                                                 except:
                                                                     print("Failed to start new video session. Please open an issue on the GitHub repo as soon as possible, including your Operating System. Thanks!")
                                                                     time.sleep(5)
@@ -316,7 +317,7 @@ def main():
                                 streamUrl = streamUrl = getM3U8Stream.getTokenizedUrl(baseUrl, auth).getUrl()
                             
                                 try:
-                                    subprocess.call(["gnome-terminal", "-x", "mpv", "--border=no", streamUrl])
+                                    startStream.startStream().start(streamUrl)
                                 except:
                                     print("Failed to start new video session. Please open an issue on the GitHub repo as soon as possible, including your Operating System. Thanks!")
                             except:
