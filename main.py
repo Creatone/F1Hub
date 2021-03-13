@@ -214,8 +214,8 @@ def main():
                                                                 baseUrl = getFeedElements(selector_sel, tarUrl, sess_sel)[stream_sel].getUrl()
                                                                 streamUrl = getM3U8Stream.getTokenizedUrl(baseUrl, auth).getUrl()
                                                                  
-                      print("Playable Link:")
-                                                                 print(streamUrl)
+                                                                print("Playable Link:")
+                                                                print(streamUrl)
                                                                 time.sleep(10)
                                                             except:
                                                                 print("Could not get link.")
