@@ -213,7 +213,9 @@ def main():
                                                             try:
                                                                 baseUrl = getFeedElements(selector_sel, tarUrl, sess_sel)[stream_sel].getUrl()
                                                                 streamUrl = getM3U8Stream.getTokenizedUrl(baseUrl, auth).getUrl()
-                                                                print(streamUrl)
+                                                                 
+                      print("Playable Link:")
+                                                                 print(streamUrl)
                                                                 time.sleep(10)
                                                             except:
                                                                 print("Could not get link.")
@@ -282,6 +284,7 @@ def main():
                             try:
                                 baseUrl = getIdSelectionUrl(idObj, id_sel)
                                 streamUrl = streamUrl = getM3U8Stream.getTokenizedUrl(baseUrl, auth).getUrl()
+                                print("Playable Link:")
                                 print(streamUrl)
                                 time.sleep(10)
                             except:
@@ -374,7 +377,15 @@ def main():
                                 pyperclip.paste()
                             except:
                                 print("Could not get playable link or pasting to clipboard failed.")
-
+                        elif play_sel == 2:
+                            try:
+                                baseUrl = getIdSelectionUrl(idObj, id_sel)
+                                streamUrl = streamUrl = getM3U8Stream.getTokenizedUrl(baseUrl, auth).getUrl()
+                                print("Playable Link:")
+                                print(streamUrl)
+                                time.sleep(10)
+                            except:
+                                print("Could not get playable link")
                     play_menu_back = False
             ID_menu_back = False
 
