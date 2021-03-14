@@ -20,17 +20,25 @@ _*In theory. As of now, the F1TV website is needed for some content_
 
 ## Anti-Features
 ##### _What this is not_
-F1Hub is NOT a piracy tool. To use it, you will need to log in with your valid F1TV Credentials. To use livestream functionality, you will need to have an F1TV Pro account.
-As of now (1 Week ahead of 2021 Preseason testing), there is NO livestream functionality, as there is no way to test it properly.
-I will be working on it during preseason and aim at having it implemented by start of the season.
+F1Hub is NOT a piracy tool. To use it, you will need to log in with your valid F1TV Credentials. To use livestream functionality, you will need to have an active F1TV Pro account.
+This program is not related to F1, F1TV, FIA or any other organization. This is a fan-made application designed to get the most out of the service F1TV provides.
 
 ## Installation
 ###### _Cool, how do I get it?_
+#### The simple way (Linux and MacOS)
+If you are on Linux (Tested on Ubuntu based systems) or MacOS, you can download the respective prepackaged file in the [release tab]().
+In a terminal, navigate to the folder containing the downloaded file (most likely 'downloads') and enter
+```
+sudo chmod +x f1Hub-$version-$os
+./f1Hub-$version-$os
+```
+
+If you are on Windows or the above steps don't work, proceed with the following steps:
 #### Dependencies
 First, let's install the dependencies.
 Make sure you have pip installed:
 ```sh
-pip -v
+pip --version
 ```
 If the command gives you an output, you're good to go. If it says that the command 'pip' was not found, follow the [this guide](https://pip.pypa.io/en/stable/installing/) to install pip on your machine:
 Now, use pip to install Simple Term Menu
@@ -41,7 +49,15 @@ Next, install the video player MPV, according to [this guide](https://mpv.io/ins
 ```sh
 mpv --version
 ```
-into your Terminal to make sure it works and is in the PATH
+into your Terminal to make sure it works and is in the PATH.
+To install pyperclip, run
+```sh
+pip install pyperclip
+```
+If you're on Windows, the requests module isn't included by default, so run
+```sh
+pip install requests
+```
 Done! Now let's get the main program:
 #### Main Program
 Download F1Hub, either by cloning the repository, or by downloading it directly. To clone it:
@@ -63,7 +79,7 @@ In the bar that opens, select the _"Network"_ tab. Check the box saying _"Preser
 Now, log in, as with any other website. The tab should fill with a list of network requests. Once you are logged in, type _"ENTITLEMENT"_ into the search bar of the inspector tab. There should be one entry of that name. Right click on the entry and select _"Copy -> Copy Response"_. The information was copied to your clipboard
 In the folder containing F1Hub, open or create the file named _"entitlement.json"_ and paste your clipboard.
 
-After restarting F1Hub, you can use it fully. You may need to repeat that step occasionally. Usually, when F1Hub crashes and gives you an error, it will be due to entitlement issues.
+After restarting F1Hub, you can use it fully. You may need to repeat that step occasionally. Usually, when F1Hub crashes and gives you an error, it will be due to entitlement or login issues.
 
 ##### How to work with the ContentID
 To play a stream using content ID, first navigate to the video [in your browser](f1tv.formula1.com). You will see a long sequence of numbers in the URL, something like _"1000000716"_. That is the content ID. Copy that number and paste it into F1Hub in the _"Play by Content ID"_ menu. Proceed like normal.
@@ -73,13 +89,13 @@ This _may_ work for live sessions, if they are designed the same way. We will kn
  - The menu sometimes spazzes out in seasons before 2018. This is because of long titles resulting by a mishandling of the API - this is low priority because these sessions have only one stream. The main purpose of this program is to provide a multi-stream service. However, I do plan on fixing it at some point down the line.
  - Some menus only show partial content, none at all, or provide no stream. The API pre-2017 is wildly different. I didn't realize until too late and it will be patched at some point. 2020-2018 Work flawlessly, though
  - 2021 Sessions and Info not available. Current season is not implemented yet, as there is no info on the buildup. It will come at some point before the season.
- - There is NO error handling... if something goes wrong, it will crash. Please keep in mind, this program, including all API analysis was built in little over 24Hrs. It will have bugs and issues.
+ - There is little to no error handling... if something goes wrong, it will crash. Please keep in mind, this program, including all API analysis was built in little over 24Hrs. It will have bugs and issues.
 
 ## Planned Features
 - All the bug fixes!
 - Better, more flexible menu structure, and a graphical UI down the line.
 - Live feature before the season's start _NOW AVAILABLE_
-- 2021 Integration before the season's start
+- 2021 Integration before the season's start _Available via ContentID feature_
 - Any Event based on ID being able to be played, ideally before the season's start. _NOW AVAILABLE_
 
 ## Disclaimer
