@@ -25,16 +25,20 @@ This program is not related to F1, F1TV, FIA or any other organization. This is 
 
 ## Installation
 ###### _Cool, how do I get it?_
-#### The simple way (Linux and MacOS)
-If you are on Linux (Tested on Ubuntu based systems) or MacOS, you can download the respective prepackaged file in the [release tab]().
+#### The simple way (Linux and MacOS, maybe Windows)
+If you are on Linux (Tested on Ubuntu based systems) or MacOS, you can download the respective prepackaged file in the [release tab](https://github.com/kodosexe/F1Hub/releases). If you are on Windows, you will need to download the Linux package and use the [Windows Subsystem for Linux](https://docs.microsoft.com/learn/modules/get-started-with-windows-subsystem-for-linux/)
 In a terminal, navigate to the folder containing the downloaded file (most likely 'downloads') and enter
 ```
 sudo chmod +x f1Hub-$version-$os
 ./f1Hub-$version-$os
 ```
 
-If you are on Windows or the above steps don't work, proceed with the following steps:
+If the above steps don't work, proceed with the following steps:
 #### Dependencies
+##### Special steps for Windows
+One of F1Hub's dependencies doesn't work with Windows. To use it, you will have to use the Windows Subsystem For Linux
+You can find a guide on how to install and use it [here](https://docs.microsoft.com/learn/modules/get-started-with-windows-subsystem-for-linux/)
+##### For all operating systems
 First, let's install the dependencies.
 Make sure you have pip installed:
 ```sh
