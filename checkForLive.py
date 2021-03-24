@@ -15,19 +15,22 @@ class checkForLive():
         return r
 
     def checkForLive(self):
-        raw = self.getResultObj()
-        if raw.text == "":
-            return False
+        try:
+            raw = self.getResultObj()
+            if raw.text == "":
+                return False
 
-        jsn = json.loads(raw.text)
-        state = jsn['resultObj']['containers'][0]['retrieveItems']['resultObj']['containers'][0]['metadata']['entitlement']
-        subtype = jsn['resultObj']['containers'][0]['retrieveItems']['resultObj']['containers'][0]['metadata']['contentSubtype']
-        if not state == "Access":
-            if not subtype == "REPLAY":
-                return True
+            jsn = json.loads(raw.text)
+            state = jsn['resultObj']['containers'][0]['retrieveItems']['resultObj']['containers'][0]['metadata']['entitlement']
+            subtype = jsn['resultObj']['containers'][0]['retrieveItems']['resultObj']['containers'][0]['metadata']['contentSubtype']
+            if not state == "Access":
+                if not subtype == "REPLAY":
+                    return True
+                else:
+                    return False
             else:
                 return False
-        else:
+        except:
             return False
 
     def getLiveUrl(self):
