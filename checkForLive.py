@@ -23,11 +23,8 @@ class checkForLive():
             jsn = json.loads(raw.text)
             state = jsn['resultObj']['containers'][0]['retrieveItems']['resultObj']['containers'][0]['metadata']['entitlement']
             subtype = jsn['resultObj']['containers'][0]['retrieveItems']['resultObj']['containers'][0]['metadata']['contentSubtype']
-            if not state == "Access":
-                if not subtype == "REPLAY":
-                    return True
-                else:
-                    return False
+            if subtype == 'LIVE':
+                return True
             else:
                 return False
         except:
