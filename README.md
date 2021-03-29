@@ -6,7 +6,7 @@
 F1Hub is a terminal application running directly on your computer -- no connection to the website needed*
 _*In theory. As of now, the F1TV website is needed for some content_
 
-![alt text](https://github.com/kodosexe/f1hubmisc/blob/main/f1Hub0-10.png?raw=true)
+![F1Hub Main Menu](https://github.com/kodosexe/f1hubmisc/blob/main/f1Hub0-10.png?raw=true)
 
 
 ## Features
@@ -99,6 +99,8 @@ To play a stream using content ID, first navigate to the video [in your browser]
 - Any Event based on ID being able to be played, ideally before the season's start. _-NOW AVAILABLE_
 
 I am now working on the first full release of F1Hub - It will have better menu structure, better aesthetics, proper error handling, safer password login and native and easy windows support.
+_Here's a work in progress sneak peek picture of F1Hub v1, featuring a GUI:_
+![Sneak Peek picture of F1Hub with a Graphical User Interface](https://github.com/kodosexe/f1hubmisc/blob/main/f1HubGuiSneakPeek.png?raw=true)
 
 ## Disclaimer
 ##### _Just to cover my back_
