@@ -34,40 +34,28 @@ sudo chmod +x f1Hub-$version-$os
 ```
 
 If the above steps don't work, proceed with the following steps:
-#### Dependencies
-##### Special steps for Windows
-One of F1Hub's dependencies doesn't work with Windows. To use it, you will have to use the Windows Subsystem For Linux
-You can find a guide on how to install and use it [here](https://docs.microsoft.com/learn/modules/get-started-with-windows-subsystem-for-linux/)
-##### For all operating systems
-First, let's install the dependencies.
-Make sure you have pip installed:
-```sh
-pip --version
-```
-If the command gives you an output, you're good to go. If it says that the command 'pip' was not found, follow the [this guide](https://pip.pypa.io/en/stable/installing/) to install pip on your machine:
-Now, use pip to install the needed dependencies
-```sh
-python3 -m pip install simple-term-menu pyperclip requests json
-```
-Some of these may already be preinstalled, depending on your machine and os.
-Next, install the video player MPV, according to [this guide](https://mpv.io/installation/). To be sure, reboot your computer and type
+
+Install the video player MPV, according to [this guide](https://mpv.io/installation/). To be sure, reboot your computer and type
 ```sh
 mpv --version
 ```
 into your Terminal to make sure it works and is in the PATH.
 Done! Now let's get the main program:
-#### Main Program
-##### _Getting F1Hub_
+
 Download F1Hub, either by cloning the repository, or by downloading it directly [from the releases tab](https://github.com/kodosexe/F1Hub/releases). To clone it:
 ```sh
-git clone https://github.com/kodosexe/f1hub
+git clone https://github.com/kodosexe/F1Hub
 ```
-Now, you can simply run it by executing 
+Now, you can simply run it by executing
 ```sh
 cd f1Hub
-python3 main.py
+make all
 ```
-and you will be greeted by the Menu
+and you will be greeted by the Menu.
+
+##### Special steps for Windows
+One of F1Hub's dependencies doesn't work with Windows. To use it, you will have to use the Windows Subsystem For Linux
+You can find a guide on how to install and use it [here](https://docs.microsoft.com/learn/modules/get-started-with-windows-subsystem-for-linux/).
 
 ## Usage
 ##### _How does it work?_
